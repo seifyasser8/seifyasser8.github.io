@@ -13,7 +13,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: "Courier New", monospace;
             line-height: 1.6;
@@ -26,28 +25,24 @@
             -ms-user-select: none;
             user-select: none;
         }
-
         /* Intro Section */
         .intro {
             padding: 60px;
             text-align: center;
             background-color: #111;
         }
-
         .intro h1 {
             font-size: 3.5em;
             font-weight: bold;
             letter-spacing: 2px;
             margin-bottom: 20px;
         }
-
         .intro p {
             margin: 20px 0;
             color: #ab0202;
             font-size: 1.5em;
             letter-spacing: 32px;
         }
-        
         /* Glow Button for Explore Services */
         .btn-primary {
             --glow-color: rgb(255, 77, 77);
@@ -57,7 +52,7 @@
             border: .25em solid var(--glow-color);
             padding: 1em 3em;
             color: var(--glow-color);
-            font-size: 15px;
+            font-size: 16px;
             font-weight: bold;
             background-color: var(--btn-color);
             border-radius: 1em;
@@ -67,12 +62,11 @@
                         inset 0 0 .75em .25em var(--glow-color);
             text-shadow: 0 0 .5em var(--glow-color);
             position: relative;
-            transition: all 1.4s;
+            transition: all 2.0s;
             text-decoration: none;
             text-transform: uppercase;
             display: inline-block;
         }
-
         .btn-primary::after {
             pointer-events: none;
             content: "";
@@ -86,21 +80,18 @@
             opacity: .7;
             transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
         }
-
         .btn-primary:hover {
             color: var(--btn-color);
             background-color: var(--glow-color);
-            box-shadow: 0 0 1em .25em var(--glow-color),
+            box-shadow: 0 0 50em .90em var(--glow-color),
                         0 0 4em 2em var(--glow-spread-color),
                         inset 0 0 .75em .25em var(--glow-color);
         }
-
         .btn-primary:active {
             box-shadow: 0 0 0.6em .25em var(--glow-color),
                         0 0 2.5em 2em var(--glow-spread-color),
                         inset 0 0 .5em .25em var(--glow-color);
         }
-
         /* Services Section */
         .services {
             padding: 60px;
@@ -112,10 +103,44 @@
             transition: max-height 1.5s ease-in-out, opacity 1.5s ease-in-out;
             opacity: 0;
         }
-
         .services.visible {
             max-height: 2000px; /* A value larger than the content's height */
             opacity: 1;
+        }
+
+        /* Styling for fancy headings */
+        .fancy-heading {
+            font-family: 'Lexend', sans-serif; /* Changed to Lexend */
+            font-size: 3em; /* Increased size for more impact */
+            color: #fff;
+            margin-bottom: 30px;
+            display: inline-block;
+            position: relative;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px #ab0202, 0 0 25px #ab0202, 0 0 35px #ab0202, 0 0 45px #ab0202; /* More intense glow */
+            animation: pulsateGlow 3s infinite alternate; /* Slightly faster pulsation */
+            letter-spacing: 3px; /* Add some letter spacing */
+        }
+
+        .fancy-heading::after {
+            content: '';
+            display: block;
+            width: 80%; /* Wider underline */
+            height: 5px; /* Thicker underline */
+            background-color: #ab0202;
+            margin: 10px auto 0; /* Center the underline horizontally and move it down a bit */
+            border-radius: 3px;
+            box-shadow: 0 0 10px #ab0202; /* Add glow to the underline */
+        }
+
+        /* Keyframes for the glow pulsation animation */
+        @keyframes pulsateGlow {
+            0% {
+                text-shadow: 0 0 10px #ab0202, 0 0 20px #ab0202;
+            }
+            100% {
+                text-shadow: 0 0 30px #ff4d4d, 0 0 40px #ff4d4d, 0 0 50px #ff4d4d, 0 0 60px #ff4d4d;
+            }
         }
 
         .service-cards {
@@ -125,7 +150,6 @@
             justify-content: center;
             align-items: flex-start;
         }
-
         .card {
             background: #1a1a1a;
             border: 1px solid #555;
@@ -141,16 +165,43 @@
             justify-content: space-between;
             transition: background-color 0.7s ease, transform 1.7s ease, color 2.9s ease;
         }
-
         .card:hover {
-            background-color: #ab0202;
+            background-color: #8a0202;
             transform: scale(1.07);
             box-shadow: 0 5px 15px rgba(255, 77, 77, 0.4);
         }
 
+        /* Card Heading Enhancement */
         .card h3 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
+            font-size: 1.8em; /* Increased font size for better prominence */
+            margin-bottom: 15px;
+            color: #fff; /* Ensure white color */
+            display: inline-block;
+            position: relative;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px #ab0202, 0 0 15px #ab0202; /* Adjust glow for card headings */
+            transition: text-shadow 0.7s ease, transform 0.7s ease; /* Smooth transition for hover */
+            text-align: center; /* Center the heading within the card */
+        }
+
+        .card h3::after {
+            content: '';
+            display: block;
+            width: 50%; /* Shorter underline for card headings */
+            height: 3px;
+            background-color: #ab0202;
+            margin: 8px auto 0;
+            border-radius: 2px;
+            transition: width 0.7s ease; /* Smooth transition for underline on hover */
+        }
+
+        .card h3:hover {
+            text-shadow: 0 0 25px #ff4d4d, 0 0 35px #ff4d4d; /* More intense glow on hover */
+            transform: translateY(-3px); /* Slight lift on hover */
+        }
+
+        .card h3:hover::after {
+            width: 80%; /* Expand underline on hover */
         }
 
         /* Contact Section */
@@ -164,30 +215,26 @@
             transition: max-height 1.5s ease-in-out, opacity 1.5s ease-in-out;
             opacity: 0;
         }
-        
         .contact.visible {
             max-height: 1000px; /* A value larger than the content's height */
             opacity: 1;
         }
-
         .booking-container {
             display: flex;
             justify-content: center;
             margin-top: 40px;
         }
-
-            /* Contact Button Styles from Uiverse.io */
+        /* Contact Button Styles from Uiverse.io */
 .cta {
   position: relative;
   margin: auto;
   padding: 11.5px 18px;
   transition: all 0.2s ease;
-  border: 3px solid #490202;
+  border: 3px solid #2a0101;
   border-radius: 50px;
-  background: #750202;
+  background: #390000;
   cursor: pointer;
 }
-
 .cta:before {
   content: "";
   position: absolute;
@@ -200,7 +247,6 @@
   height: 45px;
   transition: all 0.8s ease;
 }
-
 .cta span {
   position: relative;
   font-family: Montserrat, sans-serif;
@@ -209,7 +255,6 @@
   font-weight: 400;
   letter-spacing: 0.05em;
 }
-
 .cta svg {
   position: relative;
   top: 0;
@@ -222,22 +267,18 @@
   transform: translateX(-5px);
   transition: all 0.5s ease;
 }
-
 .cta:hover:before {
   width: 100%;
   background: #1c1c1c;
 }
-
 .cta:hover svg {
   transform: translateX(0);
   transition: all 2s ease;
 }
-
 .cta:active {
   transform: scale(0.95);
   transition: all 2s ease;
 }
-
         /* Certificate Button Styling - Space Theme */
         .certificate-button {
             display: flex;
@@ -261,7 +302,6 @@
             text-decoration: none;
             margin: 20px auto;
         }
-
         #container-stars {
             position: absolute;
             z-index: -1;
@@ -272,7 +312,6 @@
             backdrop-filter: blur(1rem);
             border-radius: 5rem;
         }
-
         .certificate-button strong {
             z-index: 2;
             font-family: "Courier New", monospace;
@@ -283,13 +322,11 @@
             font-weight: bold;
             text-transform: uppercase;
         }
-
         #glow {
             position: absolute;
             display: flex;
             width: 15rem;
         }
-
         .circle {
             width: 100%;
             height: 30px;
@@ -297,42 +334,34 @@
             animation: pulse_3011 4s infinite;
             z-index: -1;
         }
-
         .circle:nth-of-type(1) {
             background: rgba(254, 83, 186, 0.636);
         }
-
         .circle:nth-of-type(2) {
             background: rgba(142, 81, 234, 0.704);
         }
-
         .certificate-button:hover #container-stars {
             z-index: 1;
             background-color: #212121;
         }
-
         .certificate-button:hover {
             transform: scale(1.1);
         }
-
         .certificate-button:active {
             border: double 4px #fe53bb;
             background-origin: border-box;
             background-clip: content-box, border-box;
             animation: none;
         }
-
         .certificate-button:active .circle {
             background: #fe53bb;
         }
-
         #stars {
             position: relative;
             background: transparent;
             width: 200rem;
             height: 200rem;
         }
-
         #stars::after {
             content: "";
             position: absolute;
@@ -344,7 +373,6 @@
             background-image: radial-gradient(#ffffff 1px, transparent 1%);
             background-size: 50px 50px;
         }
-
         #stars::before {
             content: "";
             position: absolute;
@@ -357,7 +385,6 @@
             background-size: 50px 50px;
             opacity: 0.5;
         }
-
         @keyframes animStar {
             from {
                 transform: translateY(0);
@@ -366,7 +393,6 @@
                 transform: translateY(-135rem);
             }
         }
-
         @keyframes animStarRotate {
             from {
                 transform: rotate(360deg);
@@ -375,7 +401,6 @@
                 transform: rotate(0);
             }
         }
-
         @keyframes gradient_301 {
             0% {
                 background-position: 0% 50%;
@@ -387,7 +412,6 @@
                 background-position: 0% 50%;
             }
         }
-
         @keyframes pulse_3011 {
             0% {
                 transform: scale(0.75);
@@ -402,32 +426,6 @@
                 box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
             }
         }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .card {
-                width: calc(50% - 20px);
-            }
-            .certificate-button {
-                width: 14rem;
-                height: 3.5rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .card {
-                width: 100%;
-            }
-            .certificate-button {
-                width: 12rem;
-                height: 3rem;
-            }
-            .certificate-button strong {
-                font-size: 14px;
-                letter-spacing: 2px;
-            }
-        }
-
         /* About Section */
         .about {
             padding: 60px;
@@ -436,21 +434,14 @@
             /* Hide by default */
             max-height: 0;
             overflow: hidden;
-            transition: max-height 1.5s ease-in-out, opacity 1.5s ease-in-out;
+            transition: max-height 8.5s ease-in-out, opacity 7.5s ease-in-out;
             opacity: 0;
         }
-
         .about.visible {
             max-height: 1000px; /* A value larger than the content's height */
             opacity: 1;
         }
-
-        .about h2 {
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            color: #fff;
-        }
-
+        /* We will remove specific h2 styles here as fancy-heading will take over */
         .about p {
             margin-bottom: 30px;
             font-size: 1.1em;
@@ -459,177 +450,8 @@
             margin-left: auto;
             margin-right: auto;
         }
-
-        /* Certificate Button - Space Style */
-.certificate-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 11rem;
-    overflow: hidden;
-    height: 4rem;
-    background-size: 300% 300%;
-    cursor: pointer;
-    backdrop-filter: blur(1rem);
-    border-radius: 95rem;
-    transition: 0.9s;
-    animation: gradient_301 9s ease infinite;
-    border: double 2.3px transparent;
-    background-image: linear-gradient(#212121, #212121), linear-gradient(
-        137.48deg,
-        #c50b0b 10%,
-        #f40909 45%,
-        #6f0000 67%,
-        #231b1b 87%
-    );
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    text-decoration: none;
-    position: relative;
-}
-
-#container-stars {
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    transition: 2.5s;
-    backdrop-filter: blur(1rem);
-    border-radius: 4rem;
-}
-
-.certificate-text {
-    z-index: 2;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    color: #ffffff;
-    text-shadow: 0 0 4px white;
-    text-transform: uppercase;
-}
-
-#glow {
-    position: absolute;
-    display: flex;
-    width: 15rem;
-}
-
-.circle {
-    width: 100%;
-    height: 30px;
-    filter: blur(2rem);
-    animation: pulse_3011 4s infinite;
-    z-index: -1;
-}
-
-.circle:nth-of-type(1) {
-    background: rgba(254, 83, 186, 0.636);
-}
-
-.circle:nth-of-type(2) {
-    background: rgb(233, 52, 52);
-}
-
-.certificate-button:hover #container-stars {
-    z-index: 1;
-    background-color: #212121;
-}
-
-.certificate-button:hover {
-    transform: scale(1.1);
-}
-
-.certificate-button:active {
-    border: double 4px #990202;
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    animation: none;
-}
-
-.certificate-button:active .circle {
-    background: #990202;
-}
-
-#stars {
-    position: relative;
-    background: transparent;
-    width: 200rem;
-    height: 200rem;
-}
-
-#stars::after {
-    content: "";
-    position: absolute;
-    top: -10rem;
-    left: -100rem;
-    width: 100%;
-    height: 100%;
-    animation: animStarRotate 190s linear infinite;
-    background-image: radial-gradient(#ffffff 1px, transparent 1%);
-    background-size: 50px 50px;
-}
-
-#stars::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -50%;
-    width: 170%;
-    height: 500%;
-    animation: animStar 60s linear infinite;
-    background-image: radial-gradient(#ffffff 1px, transparent 1%);
-    background-size: 50px 50px;
-    opacity: 0.5;
-}
-
-@keyframes animStar {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-135rem);
-    }
-}
-
-@keyframes animStarRotate {
-    from {
-        transform: rotate(360deg);
-    }
-    to {
-        transform: rotate(0);
-    }
-}
-
-@keyframes gradient_301 {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-@keyframes pulse_3011 {
-    0% {
-        transform: scale(0.75);
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-    }
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-    }
-    100% {
-        transform: scale(0.75);
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    }
-}
-
-        .certificate-button::before {
+        /* Certificate Button - Space Style (Note: This was duplicated, removed for cleaner CSS) */
+        /* .certificate-button::before {
             content: '';
             position: absolute;
             top: 0;
@@ -639,17 +461,14 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s ease;
         }
-
         .certificate-button:hover::before {
             left: 100%;
-        }
-
+        } */
         .certificate-button:hover {
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 12px 30px rgba(171, 2, 2, 0.5);
             background: linear-gradient(135deg, #ff4444, #ab0202);
         }
-
         /* Footer */
         .footer {
             padding: 40px 20px;
@@ -662,12 +481,10 @@
             transition: max-height 1.5s ease-in-out, opacity 1.5s ease-in-out;
             opacity: 0;
         }
-
         .footer.visible {
             max-height: 500px; /* A value larger than the content's height */
             opacity: 1;
         }
-
         /* Avatar Styling */
         .avatar-container {
             display: flex;
@@ -675,7 +492,6 @@
             align-items: center;
             margin-bottom: 30px;
         }
-
         .avatar {
             width: 150px;
             height: 150px;
@@ -686,18 +502,15 @@
             animation: float 18s ease-in-out infinite;
             transition: transform 1.3s ease, box-shadow 1.3s ease;
         }
-
         .avatar:hover {
             transform: scale(1.1);
             box-shadow: 0 12px 35px rgba(255, 77, 77, 0.6);
         }
-
         .avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         /* Animation */
         @keyframes float {
             0%, 100% {
@@ -707,7 +520,6 @@
                 transform: translateY(-15px);
             }
         }
-
         /* Social Media Icons */
         .social-buttons {
             display: flex;
@@ -717,7 +529,6 @@
             margin-bottom: 30px;
             flex-wrap: wrap;
         }
-
         .social-icon {
             display: flex;
             justify-content: center;
@@ -729,37 +540,31 @@
             transition: all 0.8s ease;
             text-decoration: none;
         }
-
         .social-icon img {
             width: 35px;
             height: 35px;
             filter: brightness(0) invert(1);
         }
-
         .social-icon:hover {
             transform: scale(1.2) translateY(-5px);
             box-shadow: 0 8px 20px rgba(255, 77, 77, 0.4);
             background-color: #ab0202;
         }
-
         .social-icon:hover img {
             filter: brightness(1) invert(0);
         }
-
         /* Footer Copyright */
         .footer p {
             margin-top: 20px;
             font-size: 12px;
             color: #bbb;
         }
-
         /* Responsive Design */
         @media (max-width: 992px) {
             .card {
                 width: calc(33.33% - 20px);
             }
         }
-
         @media (max-width: 768px) {
             .card {
                 width: calc(50% - 20px);
@@ -771,6 +576,13 @@
             
             .intro p {
                 letter-spacing: 15px;
+            }
+
+            .fancy-heading {
+                font-size: 2.5em; /* Adjust for smaller screens */
+            }
+            .fancy-heading::after {
+                width: 70%; /* Adjust underline width for smaller screens */
             }
         }
 
@@ -786,15 +598,19 @@
             .social-buttons {
                 gap: 15px;
             }
+            .fancy-heading {
+                font-size: 2em; /* Further adjustment for very small screens */
+            }
+            .fancy-heading::after {
+                width: 60%; /* Further adjustment for very small screens */
+            }
         }
-
         /* Links Styling */
         a {
             text-decoration: none;
             color: #fff;
             transition: color 0.3s ease;
         }
-
         a:hover {
             color: #ab0202;
         }
@@ -807,10 +623,9 @@
             <p>VIRTUAL ASSISTANT</p>
             <a href="#" class="btn-primary" id="exploreServicesBtn">Explore Services</a>
         </section>
-
         <section id="services" class="services">
             <div class="koala">
-                <h2>Services I Offer</h2>
+                <h2 class="fancy-heading">Services I Offer</h2>
             </div>
             <div class="service-cards">
                 <div class="card">
@@ -834,7 +649,6 @@
                     <p>*Create spreadsheets from photographed documents, scanned files, or written notes.</p>
                     <p>*Organize information into Excel sheets or Google Docs for easy access.</p>
                 </div>
-
                 <div class="card">
                     <h3>Recipe Research and Meal Planning</h3>
                     <p>*Find and compile recipes based on specific dietary preferences or ingredient restrictions.</p>
@@ -857,9 +671,8 @@
                 </div>
             </div>
         </section>
-
         <section id="contact" class="contact">
-            <h2>Get In Touch</h2>
+            <h2 class="fancy-heading">Get In Touch</h2>
             <p>
                 Have a question or want to discuss how I can help your business? Contact me today! I will contact you immediately.
             </p>
@@ -873,9 +686,8 @@
                 </button>
             </div>
         </section>
-
         <section id="about" class="about">
-            <h2>About Me</h2>
+            <h2 class="fancy-heading">About Me</h2>
             <p>I'm Seif Yasser, Completed an 8-week intensive Virtual Assistant training program focused on professional skills and efficient task management. Gained expertise in scheduling, travel planning, and appointment coordination. Developed strong data organization and document management skills using Google Suite and Microsoft Office. Practiced drafting business correspondence and managing email systems for efficiency.</p>
             <a href="https://savanna.alxafrica.com/certificates/ByHL7YcMrX" class="certificate-button">
                 <strong>View Certificate</strong>
@@ -890,7 +702,6 @@
             </a>
         </section>
     </main>
-
     <footer class="footer">
         <div class="avatar-container">
             <a href="https://www.instagram.com/seif_yasser8/" target="_blank" class="avatar-link">
@@ -899,7 +710,6 @@
                 </div>
             </a>
         </div>
-        
         <div class="social-buttons">
             <a href="https://www.facebook.com/saifalden299/" target="_blank" class="social-icon">
                 <img src="https://img.icons8.com/ios-filled/50/000000/facebook.png" alt="Facebook">
@@ -917,13 +727,10 @@
                 <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram">
             </a>
         </div>
-        
         <p>&copy; 2025 SEIF YASSER - copyright saved ©</p>
     </footer>
-
     <script>
         document.getElementsByTagName("h1")[0].style.fontSize = "6vw";
-        
         // Get the Explore Services button
         const exploreServicesBtn = document.getElementById('exploreServicesBtn');
         // Get the sections to be revealed
@@ -931,23 +738,19 @@
         const contactSection = document.getElementById('contact');
         const aboutSection = document.getElementById('about');
         const footerSection = document.querySelector('footer');
-
         // Add event listener to the Explore Services button
         exploreServicesBtn.addEventListener('click', function(event) {
             event.preventDefault(); // Prevent default anchor link behavior
-
             // Toggle visibility of sections
             servicesSection.classList.toggle('visible');
             contactSection.classList.toggle('visible');
             aboutSection.classList.toggle('visible');
             footerSection.classList.toggle('visible');
-
             // Optional: Scroll to the services section after a short delay
             setTimeout(() => {
                 servicesSection.scrollIntoView({ behavior: 'smooth' });
             }, 700); // Adjust delay to match your animation duration
         });
-
         // Booking button functionality (already in your code)
         const bookingButton = document.querySelector('.cta'); // Changed to .cta for your new contact button
         bookingButton.addEventListener('click', function() {
